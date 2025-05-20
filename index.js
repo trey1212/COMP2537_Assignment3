@@ -6,6 +6,10 @@ let matchesFound = 0;
 let totalPairs = 0;
 let clickCount = 0;
 
+let timerInterval;
+let timeLimit = 60;
+let timeLeft = timeLimit;
+
 // Power up variables
 let revealUsed = false;
 let givePairUsed = false;
@@ -35,11 +39,15 @@ const fetchPokemonImages = async (count) => {
 
 // Start the timer
 function startTimer() {
-  elapsedTime = 0;
-  $("#timeElapsed").text(elapsedTime);
+  timeLeft = timeLimit;
+  $("#timeElapsed").text(timeLeft);
   timerInterval = setInterval(() => {
-    elapsedTime++;
-    $("#timeElapsed").text(elapsedTime);
+    timeLeft--;
+    $("#timeElapsed").text(timeLeft);
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      endGame(false); // Game over due to timeout
+    }
   }, 1000);
 }
 
@@ -53,7 +61,7 @@ function endGame(won = false) {
   // Time stops and message is displayed
   setTimeout(() => {
     if (won) {
-      alert(`You win! 🎉 Time: ${elapsedTime} seconds`);
+      alert(`You win! 🎉 Time left: ${timeLeft} seconds`);
     } else {
       alert("Time's up! Game over ⏰");
     }
@@ -199,6 +207,17 @@ $(document).ready(() => {
     totalPairs = selectedPairCount;
     matchesFound = 0;
     gameOver = false;
+    timeLeft = timeLimit;
+
+    // Time limit depending on difficulty chosen
+    if (selectedPairCount === 3) {
+      timeLimit = 30; // Easy
+    } else if (selectedPairCount === 6) {
+      timeLimit = 60; // Medium
+    } else if (selectedPairCount === 8) {
+      timeLimit = 90; // Hard
+    }
+    timeLeft = timeLimit;
 
     $("#difficultyScreen").hide();
     $("#gameScreen").show();
@@ -238,12 +257,16 @@ $(document).ready(() => {
     $(".difficulty").removeClass("selected");
     $("#gameGrid").empty();
     $("#timeElapsed").text("0");
+    clearInterval(timerInterval);
 
     selectedPairCount = null;
     matchesFound = 0;
     totalPairs = 0;
     gameOver = false;
     clickCount = 0;
+
+    timeLeft = timeLimit;
+  $("#timeElapsed").text(timeLeft);
 
     revealUsed = false;
     $("#revealAll").prop("disabled", false);
