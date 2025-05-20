@@ -1,0 +1,164 @@
+@font-face {
+    font-family: 'pokemon';
+    src: url('/fonts/Pokemon Solid.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  margin: 0px;
+}
+
+#title {
+  font-size: 30px;
+  font-family: pokemon;
+  color: #ffde00;
+  -webkit-text-stroke: 2px #3b4cca; /* Stroke color and width */
+}
+
+button {
+  background-color: #3b4cca;
+  border-style: solid;
+  border-color: #0a145c;
+  border-radius: 5px;
+  padding: 15px; 
+
+  font-weight: bold;
+  color: #ffde00;
+}
+
+button:hover {
+  background-color: #3581fc;
+  cursor: pointer;
+}
+
+#startGame:disabled { 
+  background-color: #a3a7d1;
+  border-color: #666b8d;
+  color: #e0d990;
+  cursor: not-allowed;
+}
+
+#difficultyScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#difficultyButtons {
+  display: flex;
+  gap: 5px;
+}
+
+#screenContainer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  font-family: sans-serif;
+}
+
+#themes {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+body.theme-pokeballs {
+  background-image: url('./img/pokeball.jpg');
+  background-repeat: repeat;
+  background-position: center;
+}
+
+body.theme-pikachu {
+  background-image: url('./img/pikachu.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+}
+
+body.theme-none {
+  background-color: white;
+}
+
+#gameGrid {
+  border: 2px tomato solid;
+  width: 600px; /* or whatever fixed width */
+  margin: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Easy: 2 rows × 3 columns */
+#gameGrid.easy .card {
+  flex: 0 0 calc((100% / 3) - 10px); /* 3 columns */
+  height: 200px; /* fixed height for rows */
+}
+
+/* Medium: 3 rows × 4 columns */
+#gameGrid.medium .card {
+  flex: 0 0 calc((100% / 4) - 10px); /* 4 columns */
+  height: 150px;
+}
+
+/* Hard: 4 rows × 4 columns */
+#gameGrid.hard .card {
+  flex: 0 0 calc((100% / 4) - 10px); /* 4 columns */
+  height: 150px;
+}
+
+.card {
+  flex: 0 0 auto;          /* fixed size, no grow or shrink */
+  width: 120px;            /* fixed card width */
+  aspect-ratio: 1 / 1;     /* keep square shape */
+  position: relative;
+  transition: transform 1s;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+#revealAll:disabled { 
+  background-color: #a3a7d1;
+  border-color: #666b8d;
+  color: #e0d990;
+  cursor: not-allowed;
+}
+
+#givePair:disabled { 
+  background-color: #a3a7d1;
+  border-color: #666b8d;
+  color: #e0d990;
+  cursor: not-allowed;
+}
+
+
+img {
+  width: 100%
+}
+
+.front_face,
+.back_face {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.front_face {
+  transform: rotateY(180deg);
+}

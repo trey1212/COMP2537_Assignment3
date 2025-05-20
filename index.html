@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- import jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <!-- Hard coded example -->
+  <!-- <div id="game_grid">
+    <div class="card">
+      <img id="img1" class="front_face" src="001.png" alt="">
+      <img class="back_face" src="back.webp" alt="">
+    </div>
+    <div class="card">
+      <img id="img2" class="front_face" src="002.png" alt="">
+      <img class="back_face" src="back.webp" alt="">
+    </div>
+    <div class="card">
+      <img id="img3" class="front_face" src="003.png" alt="">
+      <img class="back_face" src="back.webp" alt="">
+    </div>
+    <div class="card">
+      <img id="img4" class="front_face" src="001.png" alt="">
+      <img class="back_face" src="back.webp" alt="">
+    </div>
+    <div class="card">
+      <img id="img5" class="front_face" src="002.png" alt="">
+      <img class="back_face" src="back.webp" alt="">
+    </div>
+    <div class="card">
+      <img id="img6" class="front_face" src="003.png" alt="">
+      <img class="back_face" src="back.webp" alt="">
+    </div>
+  </div> -->
+
+  <div id="difficultyScreen">
+    <span id="title">Pokemon Memory Game</span>
+
+    <div id="difficultyButtons">
+      <button class="difficulty" data-count="3">Easy</button>
+      <button class="difficulty" data-count="6">Medium</button>
+      <button class="difficulty" data-count="8">Hard</button>
+    </div>
+
+    <button id="startGame" disabled>Start</button>
+  </div>
+
+  <div id="gameScreen" style="display: none;">
+    <div id="screenContainer">
+      <button id="resetGame">Reset</button>
+      <div>Time elapsed: <span id="timeElapsed">30</span> seconds</div>
+      <div>
+        Pairs found: <span id="pairs_found">0</span> / <span id="pairs_total">0</span>
+      </div>
+      <div>Clicks: <span id="clicks">0</span></div>
+
+      <div id="powerUps">
+        <button id="revealAll">Reveal All (1 use)</button>
+        <button id="givePair">Give Pair (1 use)</button>
+      </div>
+    </div>
+
+    
+
+    <div id="gameGrid"></div>
+  </div>
+
+  <div id="themes">
+    <button class="theme" data-theme="pokeballs">Pokeballs</button>
+    <button class="theme" data-theme="pikachu">Pikachu</button>
+    <button class="theme" data-theme="none">None</button>
+  </div>
+</body>
+</html>
