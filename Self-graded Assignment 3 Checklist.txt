@@ -19,7 +19,7 @@ A01455838
 [x]  Start and Reset buttons are added to the game.
 [x]  Difficulty levels are added to the game.
 [x]  Themes are added to the game.
-[]  Power-up logic is added to the game.
+[x]  Power-up logic is added to the game.
 
 /10 marks
 [x]  The website has an appealing, professional and consistent look.
