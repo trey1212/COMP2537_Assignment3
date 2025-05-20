@@ -61,9 +61,9 @@ function endGame(won = false) {
   // Time stops and message is displayed
   setTimeout(() => {
     if (won) {
-      alert(`You win! 🎉 Time left: ${timeLeft} seconds`);
+      alert(`You got 'em all! Time left: ${timeLeft} seconds`);
     } else {
-      alert("Time's up! Game over ⏰");
+      alert("Time's up! Game over");
     }
   }, 200);
 }
@@ -116,6 +116,7 @@ function setupGameLogic() {
 
       } else {
         setTimeout(() => {
+          if (gameOver) return;
           $(firstCard).parent().removeClass("flip");
           $(secondCard).parent().removeClass("flip");
           firstCard = null;
