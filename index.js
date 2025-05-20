@@ -101,6 +101,8 @@ function setupGameLogic() {
       if (firstCard.src === secondCard.src) {
         $(firstCard).parent().off("click");
         $(secondCard).parent().off("click");
+        $(firstCard).parent().addClass("matched");
+        $(secondCard).parent().addClass("matched"); 
         firstCard = null;
         secondCard = null;
         matchesFound++;
